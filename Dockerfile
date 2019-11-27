@@ -10,8 +10,8 @@ RUN apk add wget ca-certificates bash
 RUN update-ca-certificates
 
 # Get OpenTripPlanner
-ADD https://repo1.maven.org/maven2/org/opentripplanner/otp/$VERSION/otp-$VERSION-shaded.jar /usr/local/share/java/
-RUN ln -s otp-$VERSION-shaded.jar /usr/local/share/java/otp.jar
+ADD https://repo1.maven.org/maven2/org/opentripplanner/otp/$VERSION/otp-$VERSION-shaded.jar /deployments/
+RUN ln -s otp-$VERSION-shaded.jar /deployments/otp.jar
 
 # Create easy executable for OTP
 ADD otp /usr/local/bin/
@@ -21,7 +21,7 @@ RUN chmod 755 /usr/local/bin/*
 RUN mkdir -p /data
 RUN chmod 777 /data
 
-ADD run /usr/libexec/s2i/run.sh
-RUN chmod 750 /usr/libexec/s2i/run.sh
+ADD run.sh /opt/run-java/run-java.sh
+RUN chmod 750 /opt/run-java/run-java.sh
 
 USER 1001
