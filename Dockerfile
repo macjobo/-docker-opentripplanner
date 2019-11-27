@@ -2,6 +2,7 @@ FROM redhat-openjdk-18/openjdk18-openshift
 
 USER root
 
+ENV VERSION=1.2.0
 # Get OpenTripPlanner
 ADD https://repo1.maven.org/maven2/org/opentripplanner/otp/$VERSION/otp-$VERSION-shaded.jar /deployments/
 RUN ln -s otp-$VERSION-shaded.jar /deployments/otp.jar
