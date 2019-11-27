@@ -1,24 +1,13 @@
 FROM redhat-openjdk-18/openjdk18-openshift
 
-USER root
-
 ENV VERSION=1.2.0
-# Get OpenTripPlanner
-ADD https://repo1.maven.org/maven2/org/opentripplanner/otp/$VERSION/otp-$VERSION-shaded.jar /deployments/
-RUN ln -s otp-$VERSION-shaded.jar /deployments/otp.jar
 
-# Create easy executable for OTP
-ADD otp /usr/local/bin/
-RUN chmod 755 /usr/local/bin/otp
+ENV JAVA_APP_JAR otp.jar
+ENV AB_ENABLED off
+ENV AB_JOLOKIA_AUTH_OPENSHIFT true
+ENV JAVA_OPTIONS -Xmx256m -Djava.security.egd=file:///dev/./urandom
+ENV JAVA_MX=1G
 
-ADD assemble /usr/libexec/s2i/assemble
-RUN chmod 750 /usr/libexec/s2i/assemble
+EXPOSE 8080
 
-ADD run /usr/libexec/s2i/run
-RUN chmod 750 /usr/libexec/s2i/run
-
-# Prepare data directory
-RUN mkdir -p /data
-RUN chmod 777 /data
-
-USER 1001
+ADD target/otp-$VERSION-shaded.jar /deployments/otp.jar
