@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export JAVA_MX=1G
-
-exec otp "$@"
