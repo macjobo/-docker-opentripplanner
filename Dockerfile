@@ -8,6 +8,10 @@ ENV AB_JOLOKIA_AUTH_OPENSHIFT true
 ENV JAVA_OPTIONS -Xmx1024m -Djava.security.egd=file:///dev/./urandom
 ENV JAVA_MX=1G
 
+# Prepare data directory
+RUN mkdir -p /data
+RUN chmod 755 /data
+
 EXPOSE 8080
 
 ADD target/otp-$VERSION-shaded.jar /deployments/otp.jar
