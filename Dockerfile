@@ -1,4 +1,4 @@
-FROM redhat-openjdk-18/openjdk18-openshift
+FROM openshift/redhat-openjdk18-openshift
 
 ENV VERSION=1.2.0
 
