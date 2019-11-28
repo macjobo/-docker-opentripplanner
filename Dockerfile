@@ -6,7 +6,7 @@ ENV AB_ENABLED off
 ENV AB_JOLOKIA_AUTH_OPENSHIFT true
 ENV JAVA_OPTIONS -Xmx1024m -Djava.security.egd=file:///dev/./urandom
 
-ADD target/otp.jar /deployments/
+ADD deployments/otp.jar /deployments/
 
 # Define port
 EXPOSE 8080
