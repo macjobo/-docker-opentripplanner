@@ -13,5 +13,4 @@ EXPOSE 8080
 
 # Prepare script to be started when container comes up
 ADD run.sh /run.sh
-RUN chmod +x /run.sh
 ENTRYPOINT ["/run.sh"]
