@@ -6,7 +6,6 @@ ENV JAVA_APP_JAR otp.jar
 ENV AB_ENABLED off
 ENV AB_JOLOKIA_AUTH_OPENSHIFT true
 ENV JAVA_OPTIONS -Xmx1024m -Djava.security.egd=file:///dev/./urandom
-ENV JAVA_MX=1G
 
 # Prepare data directory
 RUN mkdir -p /data
