@@ -1,4 +1,4 @@
-FROM openjdk18
+FROM fabric8/java-jboss-openjdk8-jdk:1.5.1
 
 ENV VERSION=1.2.0
 
