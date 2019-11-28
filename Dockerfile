@@ -7,4 +7,4 @@ ENV JAVA_OPTIONS -Xmx1024m -Djava.security.egd=file:///dev/./urandom
 
 EXPOSE 8080
 
-ADD target/otp.jar /deployments/
+ADD otp.jar /deployments/
