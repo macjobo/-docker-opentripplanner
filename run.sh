@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec otp "$@"
+exec java -Xmx1024m -jar /deployments/otp.jar "$@"
