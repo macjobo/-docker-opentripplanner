@@ -13,4 +13,4 @@ ADD deployments/wien.osm /deployments/
 EXPOSE 8080
 
 # Prepare script to be started when container comes up
-ADD run.sh /opt/run-java/run-java.sh
+ADD run-java.sh /opt/run-java/
