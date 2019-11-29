@@ -8,9 +8,7 @@ ENV JAVA_OPTIONS -Xmx1024m -Djava.security.egd=file:///dev/./urandom
 ADD deployments/otp.jar /deployments/
 ADD deployments/gtfs.zip /deployments/
 ADD deployments/wien.osm /deployments/
+ADD deployments/run-java.sh /opt/run-java/
 
 # Define port
 EXPOSE 8080
-
-# Prepare script to be started when container comes up
-ADD run-java.sh /opt/run-java/
